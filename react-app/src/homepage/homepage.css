@@ -1,0 +1,8 @@
+.homepage {
+  display: flex;
+  padding: 10px 20px;
+}
+
+.main-bar {
+  flex-grow: 1;
+}
