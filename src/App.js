@@ -8,7 +8,7 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+          fetchData: []
     };
   }
 
@@ -18,8 +18,7 @@ class App extends React.Component{
       .then(
         (result) => {
           this.setState({
-
-            items: result.items
+          items: result
           });
         });
   
@@ -50,6 +49,8 @@ class App extends React.Component{
 
 
 
+
+
     );
     
   function Home() {
@@ -72,10 +73,21 @@ class App extends React.Component{
     return (
       <div>
         <h2>topics</h2>
-        <button>Show Post</button>
+        <button onClick="showPost">Show Post</button>
       <div>  </div>
       </div>
     );
+  }
+  function showPost() {
+    render(){
+  this.setState.fetchData.map(data=>{
+    return {
+      <div>
+      </div>
+    }
+  })
+  }
+
   }
 }
 
