@@ -1,67 +1,38 @@
 import React from 'react';
-import {HomePage} from "./HomePage";
-import {About} from "./About";
-import {Users} from "./Users";
-import {Posts} from "./posts";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import axios from 'axios';
+import logo from './logo.svg';
 import './App.css';
- 
-class App extends React.Component{
- constructor(props){
- super(props);
- this.state={
- userinfo: [],
- postinfo:[]
- };
- }
- // componentDidMount(){
- // axios.get('https://jsonplaceholder.typicode.com/users')
- // .then(res => {
- // this.setState({userinfo:res.data})
- // })
- // .catch(function (error) {
- // console.log(error);
- // })
- // } 
- componentDidMount(){
-       axios.get('https://jsonplaceholder.typicode.com/posts/1/comments')
-      .then(res => {
-      this.setState({postinfo:res.data})
-     })
-    .catch(function (error) {
-    console.log(error);
-    })
- }
- render(){
-        return (
-            <Router>
-                <div>
-                    <nav>
-                    <ul>
-                    <li>
-                    <Link to="/">Homepage</Link>
-                    </li>
-                    <li>
-                    <Link to="/about/">About</Link>
-                    </li>
-                    <li>
-                    <Link to="/users/">Users</Link>
-                    </li>
-                    <li>
-                    <Link to="/posts/">Posts</Link>
-                    </li>
-                    </ul>
-                    </nav>
-                
-                <Route path="/" exact component={HomePage} />
-                <Route path="/About/" component={About} />
-                <Route path="/Users/" render = { () => <Users users_data = {this.state.userinfo} /> } />
-                <Route path="/Posts/" render = { () => <Posts posts_data = {this.state.postinfo} /> } />
-                </div>
-            </Router>
-        );
-        }
+import {  HomePage } from './homepage/homepage.js';
+import {  About } from './about/about.js';
+import {  getPost } from './users/user.js';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+  // < HomePage />
+
+  <Router>
+  <div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about/">About</Link>
+        </li>
+        <li>
+          {/* <button onClick="getpost()">getpost</button> */}
+          <Link to="/users/"><button>getPost</button></Link>
+        </li>
+      </ul>
+    </nav>
+
+    <Route path="/" exact component={HomePage} />
+    <Route path="/about/" component={About} />
+    <Route path="/users/" component={getPost} /> 
+  </div>
+</Router>
+  );
 }
- 
+
 export default App;
