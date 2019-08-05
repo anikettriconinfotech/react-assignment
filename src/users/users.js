@@ -1,10 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 
 export class Users extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-          users: this.props.users,
+          users: [],
           filteredList: []
         }
         console.log(this.state.users);
@@ -17,13 +18,14 @@ export class Users extends React.Component {
         this.setState({users: this.props.users,});
       }
     filterList = (ev) => {
-       this.filteredList = this.props.users;
-        this.filteredList = this.filteredList.filter((item) => {
-            return item.name.toUpperCase().search(
-                ev.target.value.toUpperCase()) !== -1;
-        })
-        this.setState({users: this.filteredList});
-        console.log(this.filteredList.length);
+       axios.get("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => {
+      this.setState(
+        {users: response.data,
+        store: response.data}
+      )
+    })
+       
 
     }
     render() {
@@ -37,9 +39,9 @@ export class Users extends React.Component {
                 <table>
                     <tbody>
                     <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>body</th>
                     </tr>
                     {
                         this.state.users.map((user) => {
