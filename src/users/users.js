@@ -44,10 +44,10 @@ export class Users extends React.Component {
                     {
                         this.state.users.map((user) => {
                             return (
-                                <tr key= {user.email}>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.phone}</td>
+                                <tr key= {user.id}>
+                                    <td>{user.userId}</td>
+                                    <td>{user.title}</td>
+                                    <td>{user.body}</td>
                                 </tr>
                             );
                         })
