@@ -1,6 +1,7 @@
 import React from 'react';
 import './posts.css';
 
+
 export class Posts extends React.Component{
     constructor(props){
         super(props);
@@ -10,17 +11,18 @@ export class Posts extends React.Component{
         this.onClickGetPosts = this.onClickGetPosts.bind(this);
     }
     onClickGetPosts(){
+        this.setState({
+            postsdata : this.props.posts
+        })
     }
     render(){
-        
-        let data = this.props.posts;
-        console.log(data);
+       
         return(
             <div>
-               <button onClick = {() => {}}>get posts</button>
+               <button onClick = {this.onClickGetPosts}>get posts</button>
                <div className = "postsdata">
                             {
-                                data.map((post) => {
+                                this.state.postsdata.map((post) => {
                                     return(
                                         <div className='post' key={post.id}>
                                             <p>{ post.id }</p>
