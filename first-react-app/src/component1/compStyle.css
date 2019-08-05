@@ -1,0 +1,7 @@
+.component1 {
+    display: flex;
+    padding: 20px;
+}
+.main-bar{
+    flex-grow: 1;
+}
