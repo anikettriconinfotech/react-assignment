@@ -17,7 +17,7 @@ export class App extends React.Component {
     axios.get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
         this.setState({
-          posts : response.data
+          posts: response.data
         })
       })
       .catch(function (error) {
@@ -45,7 +45,7 @@ export class App extends React.Component {
 
           <Route path="/" exact component={Home} />
           <Route path="/about/" component={About} />
-          <Route path="/posts/" render = {()=><Posts posts={this.state.posts}></Posts>} />
+          <Route path="/posts/" render={() => <Posts posts={this.state.posts}></Posts>} />
         </div>
       </Router>
     );
