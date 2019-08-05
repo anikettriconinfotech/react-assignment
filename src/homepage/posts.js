@@ -22,9 +22,7 @@ export class Posts extends React.Component {
     
     render() {
         var myposts = this.state.posts;
-        // var user =  myuser.map((user)=> { return (<p>{user.name}</p>);});
         return (
-            // console.log(myuser.map((user)=> { return user.name; })),
             <div className='posts'>
                 {myposts.map((post) => {
                     return (
