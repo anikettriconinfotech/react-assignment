@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       // <HomePage/>
       <Router>
-        <div style={{textAlign:"justify"}}>
+        <div>
           <ul>
 
             <li>
