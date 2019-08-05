@@ -1,18 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 
-export class Users extends React.Component {
+export class Posts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: []
+            posts: []
         }
     }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/posts')
             .then((response) => {
                 this.setState({
-                    users: response.data
+                    posts: response.data
                 })
             })
             .catch(function (error) {
@@ -21,17 +21,17 @@ export class Users extends React.Component {
     }
     
     render() {
-        var myuser = this.state.users;
+        var myposts = this.state.posts;
         // var user =  myuser.map((user)=> { return (<p>{user.name}</p>);});
         return (
             // console.log(myuser.map((user)=> { return user.name; })),
-            <div className='users'>
-                {myuser.map((user) => {
+            <div className='posts'>
+                {myposts.map((post) => {
                     return (
-                        <div key={user.email}>
-                            <p>{user.name}</p>
-                            <p>{user.email}</p>
-                            <p>{user.phone}</p>
+                        <div key={post.id}>
+                            <p>{post.id}</p>
+                            <p>{post.title}</p>
+                            <p>{post.body}</p>
                         </div>
 
                     );
