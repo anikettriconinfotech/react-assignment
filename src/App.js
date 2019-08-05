@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    axios.get("https://jsonplaceholder.typicode.com/users")
+    axios.get("https://jsonplaceholder.typicode.com/posts")
     .then((response) => {
       this.setState(
         {users: response.data,
